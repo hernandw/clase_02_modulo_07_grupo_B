@@ -1,5 +1,6 @@
 import express from "express";
 import pageRoutes from './routes/pageRoutes.js'
+import productRoutes from './routes/productRoutes.js'
 import exphbs from 'express-handlebars'
 import path from "path";
 
@@ -30,6 +31,7 @@ app.engine('hbs', exphbs.engine({
 
 //Rutas
 app.use('/', pageRoutes)
+app.use('/', productRoutes)
 
 app.listen(PORT, () => {
   console.log(`Server running on port http://localhost:${PORT}`);
