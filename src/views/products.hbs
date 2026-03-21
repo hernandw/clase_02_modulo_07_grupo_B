@@ -1,0 +1,25 @@
+<section class="section">
+  <div class="section-head">
+    <h2>Productos</h2>
+    <a class="btn" href="/productos/nuevo">Nuevo producto</a>
+  </div>
+
+  <div class="cards">
+    {{#each products}}
+      <article class="card">
+        <img src="{{this.image_url}}" alt="{{this.name}}" class="card-img" />
+        <h3>{{this.name}}</h3>
+        <p>{{this.description}}</p>
+        <p><strong>Precio:</strong> ${{this.price}}</p>
+
+        <div class="actions">
+          <a class="btn btn-secondary" href="/productos/editar/{{this.id}}">Editar</a>
+
+          <form action="/productos/eliminar/{{this.id}}" method="POST">
+            <button class="btn btn-danger" type="submit">Eliminar</button>
+          </form>
+        </div>
+      </article>
+    {{/each}}
+  </div>
+</section>

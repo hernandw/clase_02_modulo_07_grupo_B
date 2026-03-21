@@ -1,7 +1,7 @@
 --creamos la BBDD
 create database farmacia_store_db;
 
---Crear la Tabla
+-Crear la Tabla
 CREATE TABLE products (
   id SERIAL PRIMARY KEY,
   name VARCHAR(100) NOT NULL,
@@ -10,10 +10,10 @@ CREATE TABLE products (
   image_url VARCHAR(255)
 );
 
---agregamos registros
 
-INSERT INTO products (name, description, price, image_url)
-VALUES
+
+--Insertar Registros de ejemplo 
+
 INSERT INTO products (name, description, price, image_url)
 VALUES
 ('Paracetamol 500mg', 'Alivia dolor y fiebre', 2990, '/images/product1.png'),
@@ -28,3 +28,9 @@ VALUES
 ('Termómetro Digital', 'Medición rápida de temperatura', 12990, '/images/product10.png'),
 ('Vitamina D', 'Apoyo para huesos y sistema inmune', 6490, '/images/product11.png'),
 ('Pasta Dental Sensible', 'Cuidado diario para dientes sensibles', 3790, '/images/product12.png');
+-
+
+--agregamos registros
+
+INSERT INTO products (name, description, price, image_url)
+VALUES

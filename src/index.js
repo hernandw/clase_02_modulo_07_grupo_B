@@ -1,12 +1,10 @@
 import express from "express";
-import pageRoutes from './routes/pageRoutes.js'
-import productRoutes from './routes/productRoutes.js'
-import exphbs from 'express-handlebars'
+import pageRoutes from "./routes/pageRoutes.js";
+import productRoutes from "./routes/productRoutes.js";
+import exphbs from "express-handlebars";
 import path from "path";
 
 const __dirname = path.resolve();
-
-
 
 const app = express();
 
@@ -16,22 +14,25 @@ const PORT = process.env.PORT || 3010;
 app.use(express.static(path.join(__dirname, "src/public")));
 
 //Midlewares
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 //configuración de handlebars
-app.set('view engine', 'hbs')
-app.set('views', path.join(__dirname, 'src/views'))
+app.set("view engine", "hbs");
+app.set("views", path.join(__dirname, "src/views"));
 
-app.engine('hbs', exphbs.engine({
-  defaultLayout: 'main',
-  layoutsDir: path.join(__dirname, 'src/views/layouts'),
-  extname: '.hbs'
-}))
-
-
+app.engine(
+  "hbs",
+  exphbs.engine({
+    defaultLayout: "main",
+    layoutsDir: path.join(__dirname, "src/views/layouts"),
+    extname: ".hbs",
+  }),
+);
 
 //Rutas
-app.use('/', pageRoutes)
-app.use('/', productRoutes)
+app.use("/", pageRoutes);
+app.use("/", productRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server running on port http://localhost:${PORT}`);
