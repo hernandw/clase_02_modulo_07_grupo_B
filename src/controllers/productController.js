@@ -1,5 +1,5 @@
 import pool from "../config/db.js";
-import { findAll, findById, create } from "../models/productModel.js";
+import { findAll, findById, create, deleteById } from "../models/productModel.js";
 
 
 
@@ -50,4 +50,15 @@ const createProduct = async(req, res)=>{
   }
 }
 
-export { getEditProductForm, createProduct, getProductPage };
+const deleteProduct = async(req, res)=>{
+  try {
+    const id = req.params.id
+    await deleteById(id)
+    res.redirect('/products')
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Error al eliminar producto");
+  }
+}
+
+export { getEditProductForm, createProduct, getProductPage, deleteProduct };
