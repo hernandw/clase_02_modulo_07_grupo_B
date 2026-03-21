@@ -13,4 +13,24 @@ const getHomePage = async (req, res) => {
   }
 };
 
-export { getHomePage };
+const getAboutPage = (req, res)=>{
+  try {
+    res.render('about',{
+      pageTitle: "Quienes Somos"
+    })
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+const getContactPage = (req, res)=>{
+  try {
+    res.render('contact',{
+      pageTitle: 'Contacto'
+    })
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export { getHomePage, getAboutPage, getContactPage};
